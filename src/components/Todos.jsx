@@ -23,6 +23,7 @@ const Todos = () => {
             {
                 id: Date.now(),
                 text: todotext,
+                completed: false,
             },
         ]);
         settodotext('');

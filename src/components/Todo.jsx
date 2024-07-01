@@ -3,9 +3,20 @@ import { useRecoilState } from 'recoil';
 import { todoState } from '../state/atoms/TodoState';
 
 const Todo = ({ todo, index }) => {
-    const [todos,settodos]=useRecoilState(todoState)
+    const [todos, setTodos] = useRecoilState(todoState);
+
     const handleDeleteTodo = () => {
-        settodos(todos.filter((_, i) => i !== index));
+        setTodos(todos.filter((_, i) => i !== index));
+    };
+
+    const handleToggleComplete = (index) => {
+        const newTodos = todos.map((todo, i) => {
+            if (i === index) {
+                return { ...todo, completed: !todo.completed };
+            }
+            return todo;
+        });
+        setTodos(newTodos);
     };
 
     return (
@@ -15,7 +26,7 @@ const Todo = ({ todo, index }) => {
                     type="checkbox"
                     className="mr-2"
                     checked={todo.completed}
-                    // onChange={() => handleToggleComplete(index)}
+                    onChange={() => handleToggleComplete(index)}
                 />
                 <span className={`text-lg ${todo.completed ? 'line-through' : ''}`}>
                     {todo.text}
