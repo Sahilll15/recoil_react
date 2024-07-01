@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import DebugObserver from './utils/recoilObserver';
 
 import {
   RecoilRoot,
@@ -17,6 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
+      <DebugObserver />
       <App />
     </RecoilRoot>
   </React.StrictMode>

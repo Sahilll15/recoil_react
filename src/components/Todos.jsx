@@ -14,6 +14,10 @@ const Todos = () => {
     };
 
     const handleAddTodo = () => {
+        if(!todotext){
+            alert('todos cant be empty')
+            return;
+        }
         settodos([
             ...todos,
             {
@@ -31,7 +35,8 @@ const Todos = () => {
     return (
         <div className=" bg-gray-100  ">
             <main className="bg-white p-6 rounded shadow-md w-full max-w-md">
-                <h1 className="text-2xl font-bold text-center mb-6">Todo List</h1>
+                <h1 className="text-2xl font-bold text-center mb-3">Todo List</h1>
+                <h1 className="text-xl font-semibold text-center mb-6">Basic application to learn recoil state</h1>
                 <div className="flex gap-2 mb-4">
                     <input
                         type="text"
